@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laura Manzanos Zuriarrain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #19467E;
+      --navy-mid:  #2563a8;
+      --navy-soft: #e6edf8;
+      --navy-xsoft:#f0f5fb;
+      --text:      #1a1a2e;
+      --muted:     #6b7280;
+      --white:     #ffffff;
+      --border:    #e2e8f0;
+      --radius:    10px;
+      --max:       900px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+      letter-spacing: -0.3px;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(160deg, var(--navy-xsoft) 0%, #fff 60%);
+    }
+
+    .hero-inner { max-width: 680px; }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      background: var(--navy-soft);
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 3.8rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2.2rem;
+      font-weight: 400;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.72rem 1.8rem;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--navy-mid); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .btn-outline:hover { background: var(--navy-soft); transform: translateY(-1px); }
+
+    /* ── SECTIONS ────────────────────────────────────────── */
+    section { padding: 5rem 2rem; }
+    section:nth-child(even) { background: var(--navy-xsoft); }
+
+    .container { max-width: var(--max); margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--navy-mid);
+      border-radius: 2px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── ABOUT ───────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text p { color: #374151; margin-bottom: 1rem; font-size: 0.97rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-facts { display: flex; flex-direction: column; gap: 1rem; }
+
+    .fact-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .fact-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .fact-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .fact-value {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ── SKILLS ──────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-group {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+    }
+
+    .skill-group-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--navy-mid);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+    .skill-tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--navy);
+      background: var(--navy-soft);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(25,70,126,0.15);
+    }
+
+    /* ── PROJECTS ────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Featured project spans full width */
+    .project-card-featured {
+      grid-column: 1 / -1;
+      background: var(--white);
+      border: 1.5px solid var(--navy-mid);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card-featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--navy-mid));
+    }
+
+    .project-card-featured:hover {
+      box-shadow: 0 12px 32px rgba(25,70,126,0.13);
+      transform: translateY(-2px);
+    }
+
+    .featured-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      background: var(--navy-soft);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 0.6rem;
+    }
+
+    .featured-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .featured-images img {
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .featured-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .bixi-screenshots {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .bixi-screenshot-main img,
+    .bixi-screenshot-small img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      object-fit: cover;
+    }
+
+    .bixi-screenshot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .screenshot-label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      text-align: center;
+    }
+
+    @media (max-width: 650px) {
+      .bixi-screenshot-grid { grid-template-columns: 1fr; }
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 8px 24px rgba(25,70,126,0.10);
+      transform: translateY(-2px);
+    }
+
+    .project-org {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+    }
+
+    .project-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex: 1;
+      line-height: 1.6;
+    }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
+
+    .project-tag {
+      font-size: 0.73rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--navy-soft);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 650px) {
+      .project-card-featured { grid-template-columns: 1fr; }
+      .featured-images { grid-template-columns: 1fr; }
+    }
+
+    /* ── CONTACT ─────────────────────────────────────────── */
+    .contact-inner {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-inner .section-rule { margin: 0 auto 2.5rem; }
+
+    .contact-inner p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 0.97rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── EXPERIENCE TIMELINE ─────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--navy), var(--navy-mid), var(--border));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 2.2rem 1.6rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -0.42rem;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      background: var(--navy);
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--navy-mid);
+    }
+    .timeline-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-bottom: 0.25rem;
+    }
+    .timeline-role {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .timeline-date {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--navy-mid);
+      background: var(--navy-soft);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .timeline-company {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy-mid);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .timeline-desc {
+      font-size: 0.88rem;
+      color: #4b5563;
+      line-height: 1.65;
+    }
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+    }
+    .timeline-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--navy-soft);
+      padding: 0.18rem 0.55rem;
+      border-radius: 4px;
+      border: 1px solid rgba(25,70,126,0.15);
+    }
+
+    /* ── SCROLL FADE-IN ──────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 650px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { gap: 1.2rem; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">LM</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">Open to new opportunities</span>
+    <h1 class="hero-name">Laura Manzanos<br>Zuriarrain</h1>
+    <p class="hero-sub">
+      Engineer &amp; analyst who builds things end-to-end: from ML pipelines to polished user interfaces. I turn messy data and complex problems into tools people actually want to use.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">See my work</a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">Who I am</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-rule"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a dual-degree engineer and business analyst with a Master's in Management Analytics from McGill University. My background spans telecommunications engineering, data application development, and systems testing, which means I'm equally comfortable reading a data pipeline and discussing product strategy.
+        </p>
+        <p>
+          I care about building things that work beautifully under the hood and make sense to the people using them. I'm endlessly curious and thrive in environments where I'm learning something new every week.
+        </p>
+        <p>
+          Outside of work, I've co-founded a robotics club, taught university circuits courses, and attended innovation programs at MIT and Harvard. I bring that same energy to every team I join.
+        </p>
+      </div>
+      <div class="about-facts">
+        <div class="fact-card">
+          <div class="fact-icon">🎓</div>
+          <div>
+            <div class="fact-label">Education</div>
+            <div class="fact-value">MMA, McGill University<br><span style="color:var(--muted);font-size:0.85rem">Dual Degree Eng. + Business Analytics, ICAI</span></div>
+          </div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">📍</div>
+          <div>
+            <div class="fact-label">Based in</div>
+            <div class="fact-value">Montreal, Canada</div>
+          </div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🌐</div>
+          <div>
+            <div class="fact-label">Languages</div>
+            <div class="fact-value">English · Spanish · Basque · French (B1)</div>
+          </div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">✉️</div>
+          <div>
+            <div class="fact-label">Contact</div>
+            <div class="fact-value"><a href="mailto:manzanoslaura@gmail.com" style="color:var(--navy)">manzanoslaura@gmail.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--navy-xsoft)">
+  <div class="container">
+    <p class="section-label">Academic background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="section-rule"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+
+      <div class="fact-card fade-in" style="align-items:flex-start;border-left:3px solid var(--navy);padding-left:1.6rem;">
+        <div style="width:100%">
+          <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--navy-mid);margin-bottom:0.5rem">2025 &ndash; 2026</div>
+          <div style="font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.25rem">Master of Management in Analytics</div>
+          <div style="font-size:0.88rem;font-weight:600;color:var(--navy-mid);margin-bottom:0.5rem">McGill University &middot; Desautels Faculty of Management</div>
+          <div style="font-size:0.83rem;color:var(--muted);line-height:1.6">Montreal, Canada. Focus on machine learning, data analytics, and business decision-making. Capstone in collaboration with Novartis.</div>
+        </div>
+      </div>
+
+      <div class="fact-card fade-in" style="align-items:flex-start;border-left:3px solid var(--navy-mid);padding-left:1.6rem;">
+        <div style="width:100%">
+          <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--navy-mid);margin-bottom:0.5rem">2017 &ndash; 2023</div>
+          <div style="font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.25rem">Dual Degree: B.Eng. Telecommunication Technologies &amp; B.Sc. Business Analytics</div>
+          <div style="font-size:0.88rem;font-weight:600;color:var(--navy-mid);margin-bottom:0.5rem">Comillas Pontifical University &middot; ICAI School of Engineering</div>
+          <div style="font-size:0.83rem;color:var(--muted);line-height:1.6">Madrid, Spain. Six-year dual engineering and business program. Co-founded the university robotics club and competed in the National Robotics League.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Where I've worked</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-rule"></div>
+    <div class="timeline">
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-header">
+          <div class="timeline-role">UI/UX Developer, Co-op Internship</div>
+          <div class="timeline-date">Sep 2025 &ndash; May 2026</div>
+        </div>
+        <div class="timeline-company">Novartis &middot; Montreal, Canada</div>
+        <div class="timeline-desc">
+          Built a two-panel AI analytics assistant: a conversational interface where pharma sales teams ask natural-language questions and instantly receive AI-generated charts, tables, and insights. Owned the full front-end: chat panel, analytics rendering, persona UX, and a multi-format export suite (PNG, CSV, ZIP, PDF).
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag">React 18</span>
+          <span class="timeline-tag">TypeScript</span>
+          <span class="timeline-tag">Vite</span>
+          <span class="timeline-tag">Recharts</span>
+          <span class="timeline-tag">Databricks AI</span>
+          <span class="timeline-tag">shadcn/ui</span>
+          <span class="timeline-tag">Tailwind CSS</span>
+          <span class="timeline-tag">jsPDF</span>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-header">
+          <div class="timeline-role">Systems Engineer</div>
+          <div class="timeline-date">Jan 2024 &ndash; Jul 2025</div>
+        </div>
+        <div class="timeline-company">Indra Sistemas &middot; Madrid, Spain</div>
+        <div class="timeline-desc">
+          Validated and tested the ICARO aeronautical information management system, used by air navigation services internationally. Authored SRS, test procedures, and deployment documentation for Digital Remote Tower Systems across multiple countries.
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Systems Testing</span>
+          <span class="timeline-tag">ATM</span>
+          <span class="timeline-tag">Technical Documentation</span>
+          <span class="timeline-tag">SRS</span>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-header">
+          <div class="timeline-role">Technology Internship</div>
+          <div class="timeline-date">Oct 2021 &ndash; Apr 2022</div>
+        </div>
+        <div class="timeline-company">Management Solutions &middot; Madrid, Spain</div>
+        <div class="timeline-desc">
+          Designed and developed a bank transfer risk assessment application end-to-end for a major banking client, covering solution design, multi-environment testing, and technical documentation.
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Python</span>
+          <span class="timeline-tag">Risk Modelling</span>
+          <span class="timeline-tag">Testing</span>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-header">
+          <div class="timeline-role">Business Development Internship</div>
+          <div class="timeline-date">Jun &ndash; Sep 2021</div>
+        </div>
+        <div class="timeline-company">Oneclick &middot; Madrid, Spain</div>
+        <div class="timeline-desc">
+          Managed the Salesforce CRM pipeline, developed lead-generation strategies, and represented the company in client meetings.
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Salesforce</span>
+          <span class="timeline-tag">CRM</span>
+          <span class="timeline-tag">Business Development</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">What I work with</p>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-rule"></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">HTML / CSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">ML &amp; Data</div>
+        <div class="skill-tags">
+          <span class="skill-tag">scikit-learn</span>
+          <span class="skill-tag">XGBoost</span>
+          <span class="skill-tag">LightGBM</span>
+          <span class="skill-tag">SHAP</span>
+          <span class="skill-tag">pandas</span>
+          <span class="skill-tag">Streamlit</span>
+          <span class="skill-tag">Recharts</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Analytics &amp; BI</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Excel</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Platforms &amp; Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Databricks</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Salesforce</span>
+          <span class="skill-tag">Jira</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">What I've built</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-rule"></div>
+    <div class="projects-grid">
+
+      <!-- FEATURED: BIXI -->
+      <div class="project-card-featured">
+        <div>
+          <span class="featured-badge">⭐ Featured project</span>
+          <div class="project-org">McGill MMA &middot; 2025</div>
+          <div class="project-title" style="font-size:1.25rem;margin:0.4rem 0 0.8rem">🚲 BIXI Demand Forecasting App</div>
+          <p class="project-desc" style="font-size:0.93rem;margin-bottom:1rem">
+            End-to-end ML pipeline for predicting hourly demand at Montreal BIXI bike-share stations. Built two model families (Linear Regression + Random Forest) with temporal, weather, and station-level features, then wrapped everything in an interactive Streamlit dashboard with geospatial demand clustering across the Montreal network.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0.55rem;margin-bottom:1.2rem;font-size:0.87rem;color:var(--muted)">
+            <div><strong style="color:var(--text)">ML models:</strong> Linear Regression pipeline &amp; Random Forest, with cyclical hour encoding and weather features</div>
+            <div><strong style="color:var(--text)">Clustering:</strong> Stations segmented into low / medium / high demand via historical averages</div>
+            <div><strong style="color:var(--text)">Dashboard:</strong> Three views: prediction, historical comparison, and interactive demand map</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Streamlit</span>
+            <span class="project-tag">scikit-learn</span>
+            <span class="project-tag">Random Forest</span>
+            <span class="project-tag">pandas</span>
+            <span class="project-tag">pydeck</span>
+            <span class="project-tag">Feature Engineering</span>
+          </div>
+          <div style="margin-top:1.2rem">
+            <a href="https://github.com/lauramanzanos23/bixi-demand-app" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:0.82rem;padding:0.5rem 1.2rem">View on GitHub →</a>
+          </div>
+        </div>
+        <div class="featured-visual">
+          <div class="bixi-screenshots">
+            <div class="bixi-screenshot-main">
+              <img src="images/app-clusters.png"
+                   alt="Station Demand Clusters heatmap" />
+              <span class="screenshot-label">Station demand clusters</span>
+            </div>
+            <div class="bixi-screenshot-grid" style="grid-template-columns:1fr;">
+              <div class="bixi-screenshot-small" style="grid-column:1/-1">
+                <img src="images/app-forecast-single.png"
+                     alt="16-Day demand forecast" />
+                <span class="screenshot-label">16-day forecast</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED: THE NEXT BLOCKBUSTER -->
+      <div class="project-card-featured" style="background:linear-gradient(135deg,#0f1320 0%,#1a1a2e 100%);border-color:#c9a84c88;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#c9a84c,#f0d46a);border-radius:10px 10px 0 0;"></div>
+        <div>
+          <span class="featured-badge" style="background:rgba(201,168,76,0.18);color:#c9a84c;">⭐ Featured project</span>
+          <div class="project-org" style="color:#c9a84c99;margin-top:0.4rem">McGill INSY 674 &middot; Group project &middot; 2025</div>
+          <div class="project-title" style="font-size:1.25rem;margin:0.4rem 0 0.8rem;color:#f7f7f4">🎬 The Next Blockbuster</div>
+          <p class="project-desc" style="font-size:0.93rem;margin-bottom:1rem;color:#b9bec7">
+            Pre-release movie success prediction using TMDB data on 9,290 films (2010–2025). Built two ML pipelines: a supervised regression model for popularity (Gradient Boosting + log target, R²&nbsp;0.52) and a semi-supervised classifier for revenue tier (Low / Medium / High / Blockbuster) that leverages 6,600+ unlabeled movies via Self-Training to beat all purely supervised baselines.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.2rem;font-size:0.87rem;color:#b9bec7">
+            <div><strong style="color:#f7f7f4">Popularity model:</strong> Gradient Boosting with log₁ₚ target · RMSE 3.51 · R² 0.52</div>
+            <div><strong style="color:#f7f7f4">Revenue tier model:</strong> Semi-supervised Self-Training · Macro F1 0.625 · 5,968 pseudo-labels</div>
+            <div><strong style="color:#f7f7f4">Top signals:</strong> release year, budget, director popularity, keyword richness, runtime</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag" style="background:rgba(201,168,76,0.15);color:#c9a84c;border-color:rgba(201,168,76,0.3)">Python</span>
+            <span class="project-tag" style="background:rgba(201,168,76,0.15);color:#c9a84c;border-color:rgba(201,168,76,0.3)">scikit-learn</span>
+            <span class="project-tag" style="background:rgba(201,168,76,0.15);color:#c9a84c;border-color:rgba(201,168,76,0.3)">XGBoost</span>
+            <span class="project-tag" style="background:rgba(201,168,76,0.15);color:#c9a84c;border-color:rgba(201,168,76,0.3)">Semi-Supervised Learning</span>
+            <span class="project-tag" style="background:rgba(201,168,76,0.15);color:#c9a84c;border-color:rgba(201,168,76,0.3)">SHAP</span>
+            <span class="project-tag" style="background:rgba(201,168,76,0.15);color:#c9a84c;border-color:rgba(201,168,76,0.3)">Streamlit</span>
+            <span class="project-tag" style="background:rgba(201,168,76,0.15);color:#c9a84c;border-color:rgba(201,168,76,0.3)">TMDB API</span>
+          </div>
+          <div style="margin-top:1.2rem">
+            <a href="https://github.com/lauramanzanos23/TMDB-Movies-INSY-674" target="_blank" rel="noopener"
+               class="btn btn-outline" style="font-size:0.82rem;padding:0.5rem 1.2rem;color:#c9a84c;border-color:#c9a84c66;">
+              View on GitHub →
+            </a>
+          </div>
+        </div>
+        <div class="featured-visual">
+          <div class="bixi-screenshots">
+            <div class="bixi-screenshot-main">
+              <img src="images/movie-app.png" alt="Casting Sandbox Streamlit app"
+                   style="border-color:rgba(201,168,76,0.25);" />
+              <span class="screenshot-label" style="color:#c9a84c99">Casting Sandbox app</span>
+            </div>
+            <div class="bixi-screenshot-grid" style="grid-template-columns:1fr;">
+              <div class="bixi-screenshot-small" style="grid-column:1/-1">
+                <img src="images/movie-model-comparison.png" alt="Model comparison, RMSE, MAE, R²"
+                     style="border-color:rgba(201,168,76,0.25);" />
+                <span class="screenshot-label" style="color:#c9a84c99">Popularity model benchmark</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED: NOVARTIS CAPSTONE -->
+      <div class="project-card-featured" style="background:linear-gradient(135deg,#f8fbff 0%,#eef4ff 100%);border-color:#2563a844;">
+        <div>
+          <span class="featured-badge" style="background:rgba(37,99,168,0.12);color:var(--navy)">🎓 Capstone project</span>
+          <div class="project-org" style="color:var(--navy-mid);margin-top:0.4rem">Novartis &middot; McGill MMA &middot; 2025</div>
+          <div class="project-title" style="font-size:1.25rem;margin:0.4rem 0 0.8rem">💬 AI Analytics Assistant</div>
+          <p class="project-desc" style="font-size:0.93rem;margin-bottom:1rem">
+            Capstone project built with Novartis, a two-panel web app that lets pharmaceutical sales teams ask natural-language business questions and instantly receive AI-generated charts and tables. Users type a question; the assistant queries an AI backend, parses the response, and renders it as interactive visualizations in real time.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0.55rem;margin-bottom:1.2rem;font-size:0.87rem;color:var(--muted)">
+            <div><strong style="color:var(--text)">Chat panel:</strong> Persona-aware assistant with quick-question shortcuts for sales roles (Director, Rep, Brand Manager)</div>
+            <div><strong style="color:var(--text)">Analytics panel:</strong> Pie, bar, line, scatter &amp; table outputs, each window independently exportable as PNG, CSV, ZIP, or PDF</div>
+            <div><strong style="color:var(--text)">Trace viewer:</strong> Inspect the full AI reasoning chain for debugging and model transparency</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">React 18</span>
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">Vite</span>
+            <span class="project-tag">Recharts</span>
+            <span class="project-tag">Databricks AI</span>
+            <span class="project-tag">shadcn/ui</span>
+            <span class="project-tag">Tailwind CSS</span>
+            <span class="project-tag">jsPDF</span>
+          </div>
+        </div>
+        <!-- SCREENSHOT -->
+        <div class="featured-visual">
+          <div class="bixi-screenshots">
+            <div class="bixi-screenshot-main">
+              <img src="images/novartis-app.png" alt="AI Analytics Assistant screenshot" />
+              <span class="screenshot-label">AI Analytics Assistant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED: NYC 311 POWER BI -->
+      <div class="project-card-featured" style="background:linear-gradient(135deg,#f5f8ff 0%,#eaf0fb 100%);border-color:#19467e44;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#19467E,#2563a8);border-radius:10px 10px 0 0;"></div>
+        <div>
+          <span class="featured-badge" style="background:rgba(25,70,126,0.10);color:var(--navy)">📊 Featured project</span>
+          <div class="project-org" style="color:var(--navy-mid);margin-top:0.4rem">McGill MMA &middot; 2025</div>
+          <div class="project-title" style="font-size:1.25rem;margin:0.4rem 0 0.8rem">🗽 NYC 311 Complaint Demand Analytics</div>
+          <p class="project-desc" style="font-size:0.93rem;margin-bottom:1rem">
+            Analyzed approximately 4 million NYC 311 service complaints from 2025 to uncover demand patterns, geographic concentration, and operational drivers. Built an end-to-end Power BI solution integrating NYC Open Data and Open-Meteo weather APIs, designed for city operations and resource planning teams.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0.55rem;margin-bottom:1.2rem;font-size:0.87rem;color:var(--muted)">
+            <div><strong style="color:var(--text)">Data model:</strong> Star schema with two fact tables (Fact311Daily, Complaints By Type By Borough) and shared Date and Borough dimensions</div>
+            <div><strong style="color:var(--text)">Key findings:</strong> Brooklyn and Queens account for the largest complaint volumes; illegal parking and noise dominate citywide, but borough profiles differ significantly</div>
+            <div><strong style="color:var(--text)">Weather integration:</strong> Open-Meteo API merged with complaint data to analyze environmental influence on complaint behavior</div>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Power BI</span>
+            <span class="project-tag">DAX</span>
+            <span class="project-tag">Power Query</span>
+            <span class="project-tag">Star Schema</span>
+            <span class="project-tag">NYC Open Data API</span>
+            <span class="project-tag">Open-Meteo API</span>
+            <span class="project-tag">Data Modelling</span>
+          </div>
+        </div>
+        <div class="featured-visual">
+          <div class="bixi-screenshots">
+            <div class="bixi-screenshot-main">
+              <img src="images/powerbi-dashboard1.png" alt="NYC 311 complaint demand overview dashboard" />
+              <span class="screenshot-label">Demand overview</span>
+            </div>
+            <div class="bixi-screenshot-grid" style="grid-template-columns:1fr;">
+              <div class="bixi-screenshot-small" style="grid-column:1/-1">
+                <img src="images/powerbi-dashboard2.png" alt="NYC 311 complaint composition by borough" />
+                <span class="screenshot-label">Complaint composition by borough</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OTHER PROJECTS -->
+
+      <div class="project-card">
+        <div class="project-org">Management Solutions &middot; 2022</div>
+        <div class="project-title">Bank Transfer Risk Assessment Tool</div>
+        <p class="project-desc">
+          Designed and developed an end-to-end application to assess risk on bank transfers for a major banking institution, covering multi-environment testing and technical documentation.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Risk Modelling</span>
+          <span class="project-tag">Testing</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-org">Indra Sistemas &middot; 2024</div>
+        <div class="project-title">ICARO System Validation</div>
+        <p class="project-desc">
+          Validated and documented the ICARO automated system used by air navigation services, contributing to international Digital Remote Tower System deployments across multiple countries.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Systems Testing</span>
+          <span class="project-tag">ATM</span>
+          <span class="project-tag">Technical Docs</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-org">ICAI Robotics Club &middot; 2019</div>
+        <div class="project-title">National Robotics League Projects</div>
+        <p class="project-desc">
+          Co-founded the ICAI Robotics Club and led the development of competitive robotics projects for Spain's National Robotics League.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Robotics</span>
+          <span class="project-tag">C</span>
+          <span class="project-tag">Hardware</span>
+          <span class="project-tag">Leadership</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <p class="section-label">Say hello</p>
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="section-rule"></div>
+      <p>
+        I'm always open to interesting conversations, new opportunities, or a good coffee chat. Feel free to reach out.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:manzanoslaura@gmail.com" class="btn btn-primary">Email me</a>
+        <a href="https://www.linkedin.com/in/lauramanzanos" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 Laura Manzanos Zuriarrain &middot; Built with care
+</footer>
+
+<script>
+  // Scroll-fade observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Apply fade-in to section headings, skill groups, project cards, fact cards
+  document.querySelectorAll(
+    '.skill-group, .fact-card, .project-card, .project-card-featured, ' +
+    '.section-title, .about-text, .contact-inner'
+  ).forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
